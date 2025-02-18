@@ -35,6 +35,7 @@ function SignUp() {
       });
       console.log(response.data);
       alert("Cadastro realizado com sucesso!");
+      window.location.href = "/login";
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
       alert("Erro ao cadastrar. Tente novamente.");
