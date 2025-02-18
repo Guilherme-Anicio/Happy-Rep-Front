@@ -1,7 +1,6 @@
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
-//import "../styles/Login.css";
 import axios from "axios";
 import { useState } from "react";
 
@@ -18,8 +17,13 @@ function LogIn() {
         headers: { "Content-Type": "application/json" }
       });
 
-      console.log(response.data);
-      alert("Login realizado com sucesso!");
+      console.log(response.data)
+      if(response.data.token){
+        
+        localStorage.setItem("token", response.data.token);
+        console.log(response.data);
+        window.location.href = "/mainpage";
+      }
       
     } catch (error) {
       console.error("Erro ao fazer login:", error);
@@ -28,7 +32,7 @@ function LogIn() {
   };
   
   return (
-    <div id="main-container">
+    <div id="main-container" style={{height: '50%'}}>
       <h1>Login</h1>
       <div id="input-container">
         <InputText
