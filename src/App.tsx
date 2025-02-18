@@ -5,6 +5,7 @@ import LogIn from "./components/LogIn";
 import MainPage from "./components/MainPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CadastroMorador from "./components/CadastroMorador";
+import AdicionarTarefa from "./components/AdicionarTarefa";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <Route
           path="/cadastro-morador"
           element={<ProtectedRoute element={CadastroMorador} />}
+        />
+        <Route
+          path="/adicionar-tarefa"
+          element={<ProtectedRoute element={AdicionarTarefa} />}
         />
       </Routes>
     </Router>
