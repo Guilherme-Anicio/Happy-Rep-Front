@@ -25,9 +25,9 @@ function MainPage() {
     { descricao: "Conta de luz", valor: "R$ 80,00" },
   ]);
   const [tarefaSelecionada, setTarefaSelecionada] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false); // Estado para controlar o modal
-  const [moradorSelecionado, setMoradorSelecionado] = useState(null); // Estado para o morador selecionado
-  const [quantidadeTrotes, setQuantidadeTrotes] = useState(0); // Estado para a quantidade de trotes a ser adicionada
+  const [modalVisible, setModalVisible] = useState(false); 
+  const [moradorSelecionado, setMoradorSelecionado] = useState(null);
+  const [quantidadeTrotes, setQuantidadeTrotes] = useState(0);
 
   const menuItems = [
     { label: "Perfil", icon: "pi pi-user", command: () => console.log("Perfil") },
@@ -77,19 +77,18 @@ function MainPage() {
   }, []);
 
   const adicionarTrote = () => {
-    setModalVisible(true); // Exibir o modal
+    setModalVisible(true);
   };
 
   const confirmarAdicaoDeTrote = () => {
     if (moradorSelecionado && quantidadeTrotes > 0) {
-      // Atualiza o estado de trotes com base no morador selecionado
       const trotesAtualizados = trotes.map((morador) =>
         morador.nome === moradorSelecionado
           ? { ...morador, devendo: morador.devendo + quantidadeTrotes }
           : morador
       );
       setTrotes(trotesAtualizados);
-      setModalVisible(false); // Fechar o modal
+      setModalVisible(false);
       setMoradorSelecionado(null);
       setQuantidadeTrotes(0);
     }

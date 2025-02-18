@@ -55,7 +55,7 @@ function AdicionarTarefa() {
       dataInicio: dataInicio ? dataInicio.toISOString().split("T")[0] : null,
       dataFim: dataFim ? dataFim.toISOString().split("T")[0] : null,
       concluida: false,
-      moradores_associados: moradores_associados, // Enviamos os IDs dos moradores selecionados
+      moradores_associados: moradores_associados, 
     };
 
     try {
